@@ -1,7 +1,6 @@
-
 from flask import Flask, send_from_directory
 
-app = Flask(__name__, static_folder="build", static_url_path="/")
+app = Flask(__name__, static_folder="build", static_url_path="")
 
 @app.route("/")
 def serve():
@@ -12,4 +11,4 @@ def static_proxy(path):
     return send_from_directory(app.static_folder, path)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
